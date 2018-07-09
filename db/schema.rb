@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180702081512) do
+ActiveRecord::Schema.define(version: 20180709073017) do
 
   create_table "admins", force: :cascade do |t|
     t.text "name"
@@ -40,13 +40,6 @@ ActiveRecord::Schema.define(version: 20180702081512) do
     t.index ["body"], name: "index_comments_on_body"
     t.index ["post_id"], name: "index_comments_on_post_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "direct_messages", force: :cascade do |t|
-    t.integer "user_id"
-    t.text "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
