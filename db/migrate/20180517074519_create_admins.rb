@@ -1,6 +1,6 @@
 class CreateAdmins < ActiveRecord::Migration[5.1]
   def change
-    create_table :admins do |t|
+    create_table :admins, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       t.text :name
       t.text :email_address
       t.text :password

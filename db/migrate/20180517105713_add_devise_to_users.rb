@@ -2,7 +2,7 @@
 
 class AddDeviseToUsers < ActiveRecord::Migration[5.1]
   def self.up
-    change_table :users do |t|
+    change_table :users, :options => 'ENGINE=InnoDB ROW_FORMAT=DYNAMIC' do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
