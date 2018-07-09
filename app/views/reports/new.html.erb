@@ -1,0 +1,26 @@
+<% title "通報する" %>
+
+<div class="container" style="padding-top: 50px;">
+  <div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+      <h1>投稿が問題と思われる理由を選んでください。</h1>
+      <h2><i class="glyphicon glyphicon-exclamation-sign"></i>
+      注意：投稿に問題がないにもかかわらず、むやみに通報した場合にはアカウント停止となることがあります。</h2>
+        <%= form_for(@report, :url => {:action => :create}) do |f| %>
+          <div>
+            <%= f.label :"問題の内容"%><br>
+            <%= f.select :content, [
+              ["スパムを投稿している", "スパムを投稿している"],
+              ["アカウントが乗っ取られている", "アカウントが乗っ取られている"],
+              ["私や他の利用者のなりすましをしている", "私や他の利用者のなりすましをしている"],
+              ["投稿が攻撃的であるか、暴言、脅迫、差別が含まれる", "投稿が攻撃的であるか、暴言、脅迫、差別が含まれる"],
+              ["プロフィールの情報や画像に攻撃的な内容や暴言、脅迫、差別が含まれる", "プロフィールの情報や画像に攻撃的な内容や暴言、脅迫、差別が含まれる"]
+              ] %>
+          </div>
+          <div style="padding-top: 50px;">
+            <%= f.submit "問題を通報する", class: "btn btn-danger col-xs-4 col-xs-offset-4", data: {confirm: "本当に通報しますか？"} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<% title "フォロワー" %>
+
+<div class="container">
+	<div class="row">
+		<% flash.each do |key, value| %>
+			<div class="alert alert-<%= key %>" >
+				<%= value %>
+			</div>
+	    <% end %>
+	<% if !@followers.empty? %>
+ 	<% @followers.each do |follower| %>
+  	<% if follower.unsubscribe == false %>
+	<div class="row">
+	  	<%= link_to user_path(follower.id) do %>
+			<div class="col-xs-3">
+				<%= attachment_image_tag follower, :image, format: 'jpeg', fallback:"noimage.jpeg", :style => "border-radius: 50%;", size: "200x200" %><br>
+			</div>
+			<div class="col-xs-9">
+		  		<div class="col-xs-8">
+					<%= follower.name %><br>
+	  	<% end %>
+					<%= follower.introduction %>
+		  		</div>
+		  		<div class="col-xs-4">
+					<% if follower != current_user %>
+	  		  			<% if follower.followed_by?(current_user) %>
+	  	  					<div>
+             					<%= link_to "フォロー", user_follows_path(follower), method: :delete, class: "btn-sm btn-info", "data-confirm" => "フォロー解除しますか？" %>
+          					</div>
+        	  			<% else %>
+          					<div>
+            					<%= link_to "フォロー", user_follows_path(follower), method: :post, class: "btn-sm btn-default", "data-confirm" => "フォローしますか？" %>
+          					</div>
+	  		  			<% end %>
+	  		  		<% end %>
+	  	    	</div>
+		    </div>
+	<% else %>
+		    <div class="col-xs-3">
+				<%= attachment_image_tag follower, :image, format: 'jpeg', fallback:"noimage.jpeg", :style => "border-radius: 50%;", size: "200x200" %><br>
+			</div>
+			<div class="col-xs-9">
+		  		<div class="col-xs-8">
+					退会ユーザー<br>
+		  		</div>
+		  	</div>
+  	<% end %>
+  	</div>
+ 	<% end %>
+	<% else %>
+		<h3 style="text-align: center; padding-top: 100px;">
+			フォロワーはまだいません。<br>
+			まずは記事を投稿してみて！<br>
+			注目サイドハスラーの投稿も参考にしてみましょう。
+		</h3>
+	<% end %>
+	</div>
+</div>

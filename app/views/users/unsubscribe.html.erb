@@ -1,0 +1,17 @@
+<% title "退会" %>
+
+<div class="container" style="padding-top: 100px;">
+	<div class="row">
+		<div class="col-xs-8 col-xs-offset-2">
+			<h2>退会するには下にある退会ボタンを押してください。</h2>
+			<div style="padding-top: 20px;">
+				<i class="glyphicon glyphicon-exclamation-sign"></i>退会しますとこれまでの投稿やメッセージが見れなくなります。<br>また、同一メールアドレスでの再登録はできません。
+			</div>
+			<div style="padding-top: 20px;">
+			  <%= button_to user_path(current_user, user: {unsubscribe: true}), data: { confirm: "本当に退会しますか?" }, method: :patch, class: "btn btn-danger col-xs-4 col-xs-offset-4" do %>
+					<i class="glyphicon glyphicon-new-window"></i>退会する
+			  <% end %>
+			</div>
+		</div>
+	</div>
+</div>

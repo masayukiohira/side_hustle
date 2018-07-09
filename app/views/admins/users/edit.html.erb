@@ -1,0 +1,120 @@
+<% title "プロフィール編集" %>
+
+<div class="container">
+  <div class="row">
+  	  <% if notice %>
+				<p class="alert alert-success"><%= notice %></p>
+  	  <% else %>
+				<% flash.each do |key, value| %>
+					<div class="alert alert-<%= key %>" ><%= value %></div>
+				<% end %>
+	    <% end %>
+    <div class="col-xs-10 col-xs-offset-2">
+      <table>
+  		  <tr>
+  			  <th>＜プロフィール名＞</th>
+  		  </tr>
+  		  <tr>
+  			  <td><%= @user.name %></td>
+  		  </tr>
+  		  <tr>
+  			  <th>＜プロフィール画像＞</th>
+  		  </tr>
+  		  <tr>
+  			  <td><%= attachment_image_tag @user, :image, format: 'jpeg', fallback:"noimage.jpeg", :style => "border-radius: 50%;",  size: "100x100" %></td>
+  		  </tr>
+  		  <tr>
+  			  <th>＜自己紹介＞</th>
+  		  </tr>
+  		  <tr>
+  			  <td><%= @user.introduction %></td>
+  		  </tr>
+  		  <tr>
+  			  <th>＜メールアドレス＞</th>
+  		  </tr>
+  		  <tr>
+  			  <td><%= @user.email %></td>
+  		  </tr>
+  		  <tr>
+  			  <th>＜パスワード＞</th>
+  		  </tr>
+  		  <tr>
+  			  <td><%= @user.encrypted_password %><br>(暗号化されています)</td>
+  		  </tr>
+        <tr>
+          <th>＜肩書き＞</th>
+        </tr>
+        <tr>
+          <td>
+            <% if @user.title.include?("注目サイドハスラー") %>
+              <div style="color: blue; font-weight: bold;">
+                <i class=" glyphicon glyphicon-certificate"></i>
+                <%= @user.title %>
+              </div>
+            <% else %>
+              <div>
+                <%= @user.title %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <th>＜利用制限＞</th>
+        </tr>
+        <tr>
+          <% if @user.status == true %>
+            <td style="color: red; font-weight: bold;">利用制限中</td>
+          <% else %>
+            <td>ーーーーー</td>
+          <% end %>
+        </tr>
+        <tr>
+          <th>＜退会＞</th>
+        </tr>
+        <tr>
+          <% if @user.unsubscribe == true %>
+            <td style="color: red; font-weight: bold;">退会済み</td>
+          <% else %>
+            <td>ーーーーー</td>
+          <% end %>
+        </tr>
+      </table>
+
+    <%= form_for(@user, url: admins_user_path) do |f| %>
+      <h3>編集</h3>
+      <div>
+        <%= f.label :肩書きの変更　%>
+        <%= f.select :title, [["ーーーーー", "ーーーーー"],
+                              ["注目サイドハスラー", "注目サイドハスラー"],
+                             ] %>
+      </div>
+
+      <div>
+        <%= f.label :利用制限の実行 %>
+        <%= f.select :status, [["ーーーーー", "false"],
+                              ["利用制限", "true"],
+                             ] %>
+      </div>
+
+      <div>
+        <%= f.label :退会処理の実行 %>
+        <%= f.select :unsubscribe, [["ーーーーー", "false"],
+                              ["退会", "true"],
+                             ] %>
+      </div>
+
+      <div>
+        <%= f.submit "更新する", class: "btn btn-danger" %>
+    <% end %>
+
+        <%= link_to "ユーザー一覧へ戻る", admins_users_path, data: {confirm: "ユーザ情報の変更に間違いはありませんか？" }, class: "btn btn-info" %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

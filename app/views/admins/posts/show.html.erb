@@ -1,0 +1,36 @@
+<% title "投稿詳細" %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-2">
+		<%= link_to edit_admins_user_path(@post.user.id) do %>
+			<%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback:"noimage.jpeg", size: '100x100', :style => "border-radius: 50%;" %>
+		</div>
+		<div class="col-xs-10">
+			<%= @post.user.name %><br>
+		<% end %>
+      カテゴリー：<%= @post.category %><br>
+			タイトル：<%= @post.title %>
+		</div>
+      <div class="col-xs-12">
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% else %>
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>" >
+              <%= value %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+  </div>
+  <div class="row">
+    <div class="co-xs-10 col-xs-offset-1">
+      <%= attachment_image_tag @post, :image, format: 'jpeg', fallback:"noimage2.jpeg", size: '200x375', class: "col-xs-12" %><br>
+      <%= @post.body %>
+    </div>
+	</div>
+
+	</div>
+</div>
+

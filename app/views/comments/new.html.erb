@@ -1,0 +1,32 @@
+<% title "新規投稿" %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-10 col-xs-offset-1" style="padding-top: 30px;">
+		  <% if notice %>
+			<p class="alert alert-success"><%= notice %></p>
+          <% else %>
+			<% flash.each do |key, value| %>
+				<div class="alert alert-<%= key %>" >
+					<%= value %>
+				</div>
+			<% end %>
+		  <% end %>
+		  <%= link_to post_path(@post.id) do %>
+			<%= attachment_image_tag @post, :image, format: 'jpeg', fallback:"noimage2.jpeg", size: '150x250', class: "col-xs-12" %><br>
+		  <% end %>
+		   	タイトル：<%= @post.title %>
+		</div>
+		<div class="col-xs-10 col-xs-offset-1" style="padding-top: 30px;">
+	  		<%= form_for(@comment, :url => {:action => :create}) do |f| %>
+				<div class="col-xs-12">
+					<%= f.label :コメント %><br>
+					<%= f.text_area :body, size: "70x5", placeholder: "140文字以内でコメントしてください" %>
+				</div>
+				<div class="col-xs-12">
+					<%= f.submit "投稿する", class: "btn btn-info" %>
+				</div>
+	  		<% end %>
+		</div>
+	</div>
+</div>

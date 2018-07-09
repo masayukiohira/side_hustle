@@ -1,0 +1,240 @@
+<% title "副業と確定申告" %>
+
+<div id="check" class="clearfix">
+  <!-- Q1 -->
+  <dl class="q" id="q1a">
+    <dt><span>質問1</span>今年に入り、何か副業をしましたか？</dt>
+    <dd></dd>
+  </dl>
+  <!-- Q2 -->
+  <dl class="q" id="q2a">
+    <dt><span>質問2</span>主たる勤務先以外から給与をもらいましたか？</dt>
+    <dd></dd>
+  </dl>
+  <!-- Q3 -->
+  <dl class="q" id="q3a">
+    <dt><span>質問3</span>その収入金額は２０万円を超えていますか？</dt>
+    <dd></dd>
+  </dl>
+  <dl class="q" id="q3b">
+    <dt><span>質問3</span>メルカリ、ラクマなどのフリマアプリで収入がありましたか？</dt>
+    <dd></dd>
+  </dl>
+  <!-- Q4 -->
+  <dl class="q" id="q4b">
+    <dt><span>質問4</span>その収入は「生活用動産」の売却によるものですか？</dt>
+    <dd>※生活用動産とは、家具、じゅう器、通勤用の自動車、衣服などの生活に通常必要な動産のことをいいます。</dd>
+  </dl>
+  <dl class="q" id="q4c">
+    <dt><span>質問4</span>家事代行、家庭教師などの人的サービスによる収入がありますか？</dt>
+    <dd>※クラウドソーシングによる収入も対象になります。</dd>
+  </dl>
+  <!-- Q5 -->
+  <dl class="q" id="q5c">
+    <dt><span>質問5</span>その所得金額は２０万円を超えていますか？</dt>
+    <dd>※「所得金額」とは「収入」から「必要経費」を差し引いた後の金額をいいます</dd>
+  </dl>
+  <dl class="q" id="q5d">
+    <dt><span>質問5</span>ビットコインをはじめとする仮想通貨の売却等による収入がありますか？</dt>
+    <dd>※単なる売却の他、仮想通貨での商品の購入や仮想通貨間の交換によっても収入が発生する場合があります。</dd>
+  </dl>
+  <dl class="q" id="q5f">
+    <dt><span>質問5</span>その収入は貴金属や宝石、書画、骨とうの売却によるものですか？</dt>
+    <dd></dd>
+  </dl>
+  <!-- Q6 -->
+  <dl class="q" id="q6d">
+    <dt><span>質問6</span>その所得金額は２０万円を超えていますか？</dt>
+    <dd>※「所得金額」とは「収入」から「必要経費」を差し引いた後の金額をいいます。</dd>
+  </dl>
+  <dl class="q" id="q6e">
+    <dt><span>質問6</span>「Airbnb」による民泊、「Anyca」によるカーシェアエリングなど、いわゆる「シェアリングエコノミー」による収入がありますか？</dt>
+    <dd></dd>
+  </dl>
+  <dl class="q" id="q6f">
+    <dt><span>質問6</span>貴金属や宝石、書画、骨とうの購入時の金額（1個又は1組あたり）は３０万円を超えるものでしたか？</dt>
+    <dd></dd>
+  </dl>
+  <dl class="q" id="q6g">
+    <dt><span>質問6</span>その所得金額は２０万円を超えていますか？</dt>
+    <dd>※「所得金額」とは「収入」から「必要経費」を差し引いた後の金額をいいます。</dd>
+  </dl>
+  <!-- Q7 -->
+  <dl class="q" id="q7e">
+    <dt><span>質問7</span>その所得金額は２０万円を超えていますか？</dt>
+    <dd>※「所得金額」とは「収入」から「必要経費」を差し引いた後の金額をいいます。</dd>
+  </dl>
+  <!-- 年末調整で完結します -->
+  <dl class="q" id="nennmatuchousei">
+    <dt><span>勤務先の年末調整で完結するため、確定申告は不要です。</span>
+      ただし、以下のような場合には確定申告をした方が税金が安くなる可能性があります。</dt>
+      <dd>
+      ※医療費控除を受ける場合<br>
+      ※今年住宅ローンを組んで住宅取得控除を受ける場合<br>
+      ※年内に中途退職し、年末調整を受けていない場合<br>
+      </dd>
+      詳細は最寄りの税務署、税理士にご相談下さい。
+    <dd><%= image_tag('確定申告不要.jpeg', :size => "400x200")%></dd>
+  </dl>
+  <!-- 確定申告が必要です -->
+  <dl class="q" id="hituyou">
+    <dt><span>確定申告が必要です。</span>最寄りの税務署、税理士にご相談下さい。</dt>
+    <dd><%= image_tag('確定申告.jpeg', :size => "600x280")%></dd>
+    <dd></dd>
+  </dl>
+  <!-- 確定申告は不要です -->
+  <dl class="q" id="fuyou">
+    <dt><span>確定申告は不要です。</span>ただし、副業による所得金額が２０万円以下の場合でも住民税の申告は必要です。詳細はお住まいの市区町村にお尋ねください。</dt>
+    <%= image_tag('確定申告不要.jpeg', :size => "600x300")%>
+  </dl>
+  <!-- 税務署、税理士にご相談ください -->
+  <dl class="q" id="soudann">
+    <dt><span>個別の判断が必要です。</span>最寄りの税務署、税理士にご相談下さい。</dt>
+    <dd><%= image_tag('税務署.jpeg', :size => "600x300")%></dd>
+  </dl>
+  <ul>
+    <li id="yes">はい</li>
+    <li id="no">いいえ</li>
+  </ul>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="btn btn-ghost btn-primary col-xs-2 col-xs-offset-5">
+      <div id="reload">
+        <i class="glyphicon glyphicon-refresh">はじめから</i>
+      </div>
+    </div>
+  </div>
+</div>
+ 
+ 
+<script>
+  var num = 1;  //質問の順番
+var qua = 7;  //質問数
+var branch = 'a';  //質問の分岐の種類
+var speed = 300;  //スライドの速度
+var nextQ = 'q' + num + branch;  //表示させるdiv（ID）の指定
+
+//質問のカウントアップ
+function nq(){
+  num ++;
+  nextQ = 'q' + num + branch;
+}
+ 
+//質問のカウントアップなし
+function nqn(){
+  nextQ = 'q' + num + branch;
+}
+ 
+//次の画面へ移動（カウントアップ）
+function slide(){
+  $('#'+nextQ).animate({ marginLeft: -650}, speed);
+  nq();
+  $('#'+nextQ).animate({ marginLeft: 0}, speed);
+}
+ 
+ //次の画面へ移動(カウントアップなし)
+function nslide(){
+  $('#'+nextQ).animate({ marginLeft: -650}, speed);
+  nqn();
+  $('#'+nextQ).animate({ marginLeft: 0}, speed);
+}
+ 
+//最後の画面
+function saigo(n){
+  $('#check ul').animate({ opacity: 0}, speed);
+  $('#'+n).animate({ marginLeft: 0}, speed);
+}
+ 
+//『はい』を選択した際の動き
+$("#yes").click(function(){
+    if(num < 3) {
+      slide();
+    } else if(num == 3) {
+        if(branch == 'a') {
+          $('#'+nextQ).animate({ marginLeft: -650}, speed);
+          saigo('hituyou');
+        } else {
+          slide();
+      }
+    } else if(num == 4) {
+        if(branch == 'b') {
+          $('#'+nextQ).animate({ marginLeft: -650}, speed);
+          saigo('fuyou');
+        } else if(branch == 'c') {
+          slide();
+      }
+    } else if(num == 5) {
+        if(branch == 'c') {
+          $('#'+nextQ).animate({ marginLeft: -650}, speed);
+          saigo('hituyou');
+        } else if(branch == 'd' || branch == 'f') {
+          slide();
+      }
+    } else if(num == 6) {
+        if(branch == 'd' || branch == 'f' || branch == 'g') {
+          $('#'+nextQ).animate({ marginLeft: -650}, speed);
+          saigo('hituyou');
+        } else if(branch == 'e') {
+          slide();
+      }
+    } else {
+      $('#'+nextQ).animate({ marginLeft: -650}, speed);
+      saigo('hituyou');
+    }
+});
+ 
+//『いいえ』を選択した際の動き
+$("#no").click(function(){
+    if(num == 1) {
+      $('#'+nextQ).animate({ marginLeft: -650}, speed);
+      saigo('nennmatuchousei');
+  } else if(num == 2) {
+      branch = 'b';
+      slide();
+  } else if(num == 3) {
+      if(branch == 'a') {
+        branch = 'b';
+        nslide();
+    } else {
+        branch = 'c';
+        slide();
+    }
+  } else if(num == 4) {
+      if(branch == 'b') {
+        branch = 'f';
+        slide();
+    } else {
+        branch = 'd';
+        slide();
+    }
+  } else if(num == 5) {
+      if(branch == 'c') {
+      　$('#'+nextQ).animate({ marginLeft: -650}, speed);
+        saigo('fuyou');
+    } else if(branch == 'd') {
+        branch = 'e';
+        slide();
+    } else {
+        branch = 'g';
+        slide();
+    }
+  } else if(num == 6) {
+      if(branch == 'd' || branch == 'f' || branch == 'g') {
+      　$('#'+nextQ).animate({ marginLeft: -650}, speed);
+        saigo('fuyou');
+    } else {
+      $('#'+nextQ).animate({ marginLeft: -650}, speed);
+      saigo('soudann');
+    }
+  } else {
+      $('#'+nextQ).animate({ marginLeft: -650}, speed);
+      saigo('fuyou');
+  }
+});
+ 
+// 更新ボタン
+$('#reload').click(function() {
+  location.reload();
+});
+</script>

@@ -1,0 +1,32 @@
+section.message_box {
+  padding: 10px;
+  border: 1px solid gray-light;
+  overflow: scroll;
+  #messages {
+    height: 400px;
+  }
+}
+
+div.message_form {
+  padding-top: 10px;
+  border: 1px solid gray-light;
+  overflow: scroll;
+  position: relative;
+  padding: 0.5em 0.7em;
+  margin: 2em 0;
+  background: #e6f4ff;
+  color: #5c98d4;
+  font-weight: bold;
+}
+
+#message_content {
+  border: 1px solid gray-light;
+  overflow: scroll;
+  position: relative;
+  padding: 0.5em 0.7em;
+  margin: 2em 0;
+  background: #e6f4ff;
+  color: #5c98d4;
+  font-weight: bold;
+  font-size: 1.0em;
+}

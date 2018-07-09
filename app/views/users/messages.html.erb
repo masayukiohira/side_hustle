@@ -1,0 +1,38 @@
+<% title "ダイレクトメッセージ" %>
+
+  <div class="container">
+    <div class="row">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+        <% else %>
+        <% flash.each do |key, value| %>
+          <div class="alert alert-<%= key %>" >
+            <%= value %>
+          </div>
+        <% end %>
+      <% end %>
+      <div class="col-xs-8 col-xs-offset-2">
+      　<% if user_signed_in? %>
+        <% if @user != current_user %>
+          <section class="message_box">
+            <div id="messages">
+              <%= render @messages %>
+            </div>
+          </section>
+
+          <script type="text/javascript">
+            var height = 0;
+            $("div.message").each( function() {
+              height += ($(this).height());
+            });
+            $('section.message_box').scrollTop(height);
+          </script>
+
+          <div class="message_form">
+            <%= render 'messages/message_form',{from_user: current_user, to_user: @user, room_id: @room_id} %>
+          </div>
+        <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>

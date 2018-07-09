@@ -1,0 +1,75 @@
+<% title "ユーザー一覧" %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<table align="right">
+				<tr>
+					<th>並び替え</th>
+					<th><%= sort_link(@q, :followers_count, "フォロワー数", default_order: :desc) %>
+					</th>
+				</tr>
+			</table>
+		</div>
+	</div>
+ <% if !@users.empty? %>
+  <% @users.each do |user| %>
+	<div class="row">
+		<div class="col-xs-3">
+			<%= attachment_image_tag user, :image, format: 'jpeg', fallback:"noimage.jpeg", :style => "border-radius: 50%;", size: "200x200" %><br>
+		</div>
+		<div class="col-xs-9">
+			<div class="col-xs-8">
+		  			<table>
+		  			    <tr>
+		  			    	<th>肩書き：</th>
+   						  <% if user.title.include?("注目サイドハスラー") %>
+              				<th style="color: blue; font-weight: bold;">
+                				<i class=" glyphicon glyphicon-certificate"></i>
+                				<%= user.title %>
+              				</th>
+          			  	  <% else %>
+		  	  				<th><%= user.title %></th>
+		  	          	  <% end %>
+		  			    </tr>
+		  			</table>
+		  			<table>
+		  				<tr>
+		  					<th>利用制限：</th>
+   						  <% if user.status == true %>
+		    				<th style="color: red; font-weight: bold;">利用制限中</th>
+          		          <% else %>
+		    				<th>ーーーーー</th>
+		  				</tr>
+          		          <% end %>
+		  			</table>
+		  			<table>
+		  				<tr>
+		  					<th>退会処理：</th>
+   						  <% if user.unsubscribe == true %>
+		    				<th style="color: red; font-weight: bold;">退会済み</th>
+          		          <% else %>
+		    				<th>ーーーーー</th>
+		  				</tr>
+          		          <% end %>
+		  			</table>
+		        <p style="font-weight: bold;">
+		        	<%= user.followers.count %>フォロワー
+		        </p>
+		        <p style="font-weight: bold;">
+            		<%= user.name %>
+		        </p>
+				<%= user.introduction %>
+		  	</div>
+			<div class="col-xs-4">
+          		<div>
+            		<%= link_to "編集", edit_admins_user_path(user.id), class: "btn btn-sm btn-info" %>
+          		</div>
+	  		</div>
+		</div>
+	</div>
+  <% end %>
+ <% else %>
+ 	<h3>該当者はいません</h3>
+ <% end %>
+</div>

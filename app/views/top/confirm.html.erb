@@ -1,0 +1,30 @@
+<% title '注意事項' %>
+
+<div class="container" style="background-image: url(<%= asset_path "tim-gouw-66176-unsplash.jpg" %>); background-size: cover">
+	<div class="row" style="padding: 100px 0 100px 0;">
+		<div>
+			<%= image_tag("layers-512.png", :size => "100x300", class: "col-xs-8 col-xs-offset-2") %>
+		</div>
+		<div class="text-center col-xs-12" style="color: white;">
+				<h1>
+				質問に「はい」か「いいえ」を選ぶだけ。<br>
+				確定申告が必要かどうか、簡単にわかります。
+				</h1>
+		</div>
+		<div class="text-center col-xs-12" style="color: white;">
+				<h3>※注意事項<br>
+				確定申告についての最終的な判断及び申告のための手続き等については、税務署、税理士にご相談の上、ご自身で行って下さい。なお、確定申告について生じた損害の一切について、当サイトでは責任を負いかねます。
+				</h3>
+		</div>
+	<div class="col-xs-6">
+		<div>
+			<%= link_to '注意事項に同意して始める', taxreturn_top_path, class: "btn-lg btn-ghost btn-white col-xs-6 col-xs-offset-3 text-center" %>
+		</div>
+	</div>
+	<div class="col-xs-6">
+		<div>
+	 		<%= link_to 'トップへ戻る', start_top_path, class: "btn-lg btn-ghost btn-white col-xs-6 col-xs-offset-3 text-center" %>
+	 	</div>
+	</div>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+body{
+    font-family:Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    color:#333;
+}
+ 
+main{
+    display:block;
+    width:100%;
+    margin:0 auto;
+    padding:60px 20px;
+}
+ 
+main li{
+    position:relative;
+    float:left;
+    width:100%;
+    margin:0 20px 50px 0;
+    color:#FFF;
+    line-height:2em;
+}
+ 
+main li:nth-child(3n){
+    margin-right:0;
+}
+ 
+main li img{
+    vertical-align:bottom;
+        width: 100%;
+}
+ 
+main div{
+    position:absolute;
+    display:none;
+    width:100%;
+    height:100%;
+    padding:20px;
+    background:rgba(74, 84, 84, 0.7);
+    top:0;
+    left:0;
+    box-sizing:border-box;
+}
+ 
+main p{
+    position:relative;
+    top:10px;
+}

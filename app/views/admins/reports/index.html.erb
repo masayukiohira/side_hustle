@@ -1,0 +1,54 @@
+<% title '通報一覧' %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<table align="right">
+				<tr>
+					<th>[並び替え：</th>
+					<th><%= sort_link(@q, :created_at, "投稿日") %>]
+					</th>
+				</tr>
+			</table>
+		</div>
+		<div class="col-xs-12">
+		  <% if !@reports.empty? %>
+			<% @reports.each do |report| %>
+			<div class="row">
+				<%= link_to admins_post_path(report.post_id) do %>
+					<div class="col-xs-3">
+						<%= attachment_image_tag report.post, :image, format: 'jpeg', fallback:"noimage2.jpeg", size: "200x200" %><br>
+					</div>
+				<% end %>
+					<div class="col-xs-9">
+						<div class="col-xs-8">
+							報告日時：<%= report.created_at.strftime('%Y年%m月%d日 %H時%M分') %><br>
+							通報されたユーザー：
+							<%= link_to edit_admins_user_path(report.post.user.id) do %>
+								<%= attachment_image_tag report.post.user, :image, format: 'jpeg', fallback:"noimage.jpeg", size: "15x15", style: "border-radius: 50%;" %>
+								<%= report.post.user.name %><br>
+							<% end %>
+							通報したユーザー：
+							<%= link_to edit_admins_user_path(report.user.id) do %>
+							<%= attachment_image_tag report.user, :image, format: 'jpeg', fallback:"noimage.jpeg", size: "15x15", style: "border-radius: 50%;" %>
+								<%= report.user.name %><br>
+							<% end %>
+							問題の内容：<%= report.content %>
+						</div>
+						<div class="col-xs-4">
+          					<div>
+            					<%= link_to "詳細", admins_post_path(report.post.id), class: "btn btn-sm btn-info" %>
+          					</div>
+	  					</div>
+					</div>
+			</div>
+		    <% end %>
+		  <% else %>
+		  	<h3>
+		  	通報はまだありません。
+		  	</h3>
+		  <% end %>
+		</div>
+	</div>
+</div>
+

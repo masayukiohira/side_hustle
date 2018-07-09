@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>副業ポータル</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- drawer.css -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.1.0/css/drawer.min.css">
+	<!-- jQuery & iScroll -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/iScroll/5.1.3/iscroll.min.js"></script>
+	<!-- drawer.js -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/drawer/3.1.0/js/drawer.min.js"></script>
+	<!-- bootstrap -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  </head>
+
+<body class="drawer drawer--right" style="padding-top: 70px;">
+<header role="banner" class="navbar navbar-fixed-top">
+	<div class="container">
+  		<nav>
+	    	<ul class="nav navbar-nav navbar-left">
+	        	<% if user_signed_in? %>
+	        		<li style="padding-top: 7px;">
+  	  	  				<%= link_to start_top_path do %>
+  	  	  					<i style="color: black; font-size: 20px;">
+	  	      					<%= image_tag("layers-512.png", :size => "30x30") %>副業ポータル
+	  	      				</i>
+	  	    			<% end %>
+		 		 	</li>
+		 		 	<% if yield(:title).present? %>
+		 			<li>
+		 				<div style="padding: 10px 0px 0px 10px; font-size: 30px;">
+		 					<%= link_to :back do%>
+	  	     			 		<i class="glyphicon glyphicon-arrow-left"></i>
+		 					<% end %><%= yield(:title) %>
+		 				</div>
+		 			</li>
+		 		    <% end %>
+		 		<% elsif admin_signed_in? %>
+		 			<li style="padding-top: 7px;">
+  	  	  				<%= link_to admins_root_path do %>
+  	  	  					<i style="color: black; font-size: 20px;">
+	  	      					<%= image_tag("layers-512.png", :size => "30x30") %>副業ポータル
+	  	      				</i>
+	  	    			<% end %>
+		 		 	</li>
+		 		 	<% if yield(:title).present? %>
+		 			<li>
+		 				<div style="padding: 10px 0px 0px 10px; font-size: 30px;">
+		 					<%= link_to :back do%>
+	  	     			 		<i class="glyphicon glyphicon-arrow-left"></i>
+		 					<% end %><%= yield(:title) %>
+		 				</div>
+		 			</li>
+		 		    <% end %>
+		 		<% else %>
+		 			<li style="padding-top: 7px;">
+  	  	  				<%= link_to root_path do %>
+  	  	  					<i style="color: black; font-size: 20px;">
+	  	      					<%= image_tag("layers-512.png", :size => "30x30") %>副業ポータル
+	  	      				</i>
+	  	    			<% end %>
+		 		 	</li>
+		 		 	<% if yield(:title).present? %>
+		 			<li>
+		 				<div style="padding: 10px 0px 0px 10px; font-size: 30px;">
+		 					<%= link_to :back do%>
+	  	     			 		<i class="glyphicon glyphicon-arrow-left"></i>
+		 					<% end %><%= yield(:title) %>
+		 				</div>
+		 			</li>
+		 		    <% end %>
+		 		<% end %>
+			</ul>
+		</nav>
+
+		<nav>
+	    	<ul class="nav navbar-nav navbar-right">
+	        	<% if user_signed_in? %>
+	        		<li>
+						<%= link_to user_path(current_user) do%>
+	    				<div style="font-size: 20px; padding-top: 7px;">
+	    					<i style="color: black;">
+	    						<%= attachment_image_tag current_user, :image, format: 'jpeg', fallback:"noimage.jpeg", :style => "border-radius: 50%;", :size => '30x30'%>
+	    					<%= current_user.name %>
+	    					</i>
+	        			</div>
+	        			<% end %>
+	     			</li>
+		 		<% elsif admin_signed_in? %>
+		 			<li>
+	    				<div style=" font-size: 20px; padding-top: 20px;">
+	    					<i style="color: black;">
+	    						<%= image_tag("管理者.jpeg", :size => "30x30", :style => "border-radius: 50%;") %>
+	    						管理者
+	    					</i>
+	        			</div>
+	     			</li>
+		 		<% else %>
+		 			<li>
+	    				<div style="font-size: 20px; padding-top: 20px;">
+	    					<i style="color: black;">
+	    						<%= image_tag("noimage.jpeg", :size => "30x30", :style => "border-radius: 50%;") %>
+	    						ようこそ ゲスト 様
+	    					</i>
+	        			</div>
+	     			</li>
+		 		<% end %>
+
+
+
+		<button type="button" class="drawer-toggle drawer-hamburger">
+			<span class="sr-only">toggle navigation</span>
+			<span class="drawer-hamburger-icon"></span>
+		</button>
+
+		<nav class="drawer-nav" role="navigation">
+			<ul class="drawer-menu">
+				<% if user_signed_in? %>
+					<li>
+						<%= link_to user_path(current_user) do%>
+	    				<div style="padding-top: 20px; font-size: 20px;">
+	    					<i style="color: black;">
+	    						<%= attachment_image_tag current_user, :image, format: 'jpeg', fallback:"noimage.jpeg", :style => "border-radius: 50%;", :size => "30x30" %>
+	    					<%= current_user.name %>
+	    					</i>
+	        			</div>
+	        			<% end %>
+	     			</li>
+	     			<li>
+	     				<div style="font-size: 15px; padding-top: 20px;">
+	     					<%= link_to user_path(current_user) do %>
+	     						<i style="color: black;">
+	     						<%= current_user.posts.count %>投稿
+	     						</i>
+							<% end %>
+	     				</div>
+	     			</li>
+	     			<li>
+	     				<div style="font-size: 15px;">
+	     					<%= link_to followers_user_path(current_user) do %>
+	     						<i style="color: black;">
+	     							<%= current_user.followers.count %>フォロワー
+	     						</i>
+							<% end %>
+	     				</div>
+	     			</li>
+	     			<li>
+	     				<div style="font-size: 15px;">
+	     					<%= link_to follows_user_path(current_user) do %>
+	     						<i style="color: black;">
+	     							<%= current_user.follows.count %>フォロー
+	     						</i>
+							<% end %>
+	     				</div>
+	     			</li>
+	     			<li class="drawer-brand" style="padding-top: 10px;">
+	  	  				<%= link_to about_top_path do %>
+	  	    				<i style="color: black;"><%= image_tag("layers-512.png", :size => "18x18") %>副業ポータルとは</i>
+	  	    			<% end %>
+	  	  			</li>
+					<li class="drawer-brand">
+            			<%= link_to user_path(current_user) do %>
+              				<i class="glyphicon glyphicon-user" style="color: black;">プロフィール</i>
+            			<% end %>
+        			</li>
+					<li class="drawer-brand">
+	  	  				<%= link_to favorites_user_path(current_user.id) do %>
+	  	      				<i class="glyphicon glyphicon-tags" style="color: black;">ブックマーク</i>
+	  	    			<% end %>
+	  	  			</li>
+					<li class="drawer-brand">
+	  	  				<%= link_to timeline_posts_path do %>
+		  	    			<i class="glyphicon glyphicon-list" style="color: black;">タイムライン</i>
+	  	    			<% end %>
+	  	  			</li>
+					<li class="drawer-brand">
+            			<%= link_to destroy_user_session_path, method: :delete do %>
+              				<i class="glyphicon glyphicon-log-out" style="color: black;">ログアウト</i>
+            			<% end %>
+          			</li>
+          			<li class="drawer-brand">
+            			<%= link_to unsubscribe_user_path(current_user) do %>
+              				<i class="glyphicon glyphicon-new-window" style="color: black;">退会</i>
+            			<% end %>
+          			</li>
+          		<% elsif admin_signed_in? %>
+	  	    		<li>
+	    				<div style="padding-top: 20px; font-size: 15px;">
+	    					<%= image_tag("管理者.jpeg", :size => "30x30", :style => "border-radius: 50%;") %>
+	    					管理者
+	        			</div>
+	        		</li>
+					<li class="drawer-brand" style="padding-top: 20px;">
+						<%= link_to admins_users_path do %>
+	  	      				<i class="glyphicon glyphicon-user" style="color: black;">ユーザー一覧</i>
+	  	    			<% end %>
+					</li>
+					<li class="drawer-brand">
+						<%= link_to admins_users_path({"utf8"=>"✓", "q"=>{"title_cont"=>"注目サイドハスラー", "commit"=>"Search" }}) do %>
+	  	      				<i class="glyphicon glyphicon-certificate" style="color: black;">注目ｻｲﾄﾞﾊｽﾗｰ一覧</i>
+	  	    			<% end %>
+	  	  			</li>
+					<li class="drawer-brand">
+	  	  				<%= link_to admins_reports_path do %>
+		  	    			<i class="glyphicon glyphicon-warning-sign" style="color: black;">通報一覧</i>
+	  	    			<% end %>
+	  	    		</li>
+	  	    		<li class="drawer-brand">
+	  	  				<%= link_to admins_users_path({"utf8"=>"✓", "q"=>{"status_eq"=>"true", "commit"=>"Search" }}) do %>
+	  	      				<i class="glyphicon glyphicon-user" style="color: black;">利用制限一覧</i>
+	  	    			<% end %>
+	  	  			</li>
+	  	  			<li class="drawer-brand">
+	  	  				<%= link_to admins_users_path({"utf8"=>"✓", "q"=>{"unsubscribe_eq"=>"true", "commit"=>"Search" }}) do %>
+	  	      				<i class="glyphicon glyphicon-user" style="color: black;">退会一覧</i>
+	  	    			<% end %>
+	  	  			</li>
+					<li class="drawer-brand">
+            			<%= link_to destroy_admin_session_path, method: :delete do %>
+              				<i class="glyphicon glyphicon-log-out" style="color: black;">ログアウト</i>
+            			<% end %>
+          			</li>
+        		<% else %>
+        　			<li>
+        				<div style="padding-top: 20px; font-size: 15px;">
+	    					<%= image_tag("noimage.jpeg", :size => "30x30", :style => "border-radius: 50%;") %>
+	    					ゲスト　様
+	        			</div>
+	     			</li>
+					<li class="drawer-brand" style="padding-top: 20px;">
+	  	  				<%= link_to about_top_path do %>
+	  	    				<i style="color: black;"><%= image_tag("layers-512.png", :size => "18x18") %>副業ポータルとは</i>
+	  	    			<% end %>
+	  	  			</li>
+					<li class="drawer-brand">
+
+	  	  				<%= link_to new_user_registration_path do %>
+	  	      				<i class="glyphicon glyphicon-edit" style="color: black;">新規登録</i>
+	  	    			<% end %>
+	  	  			</li>
+					<li class="drawer-brand">
+	  	  				<%= link_to new_user_session_path do %>
+	  	      				<i class="glyphicon glyphicon-log-in" style="color: black;">ログイン</i>
+	  	    			<% end %>
+	  	  			</li>
+	  			<% end %>
+	  		</ul>
+	  	</nav>
+	</div>
+</header>
+
+	<div id="smoothscroll"></div>
+
+	<%= yield %>
+
+	<!-- drawer -->
+	<script>
+		jQuery.noConflict();
+		(function($) {
+    		$(document).ready(function() {
+        		$(".drawer").drawer();
+    		});
+   	 	})(jQuery);
+	</script>
+
+	<!-- スムーズスクロール -->
+	<script>
+		(function($) {
+    		'use strict';
+
+    		$(function() {
+        		var scrollSpeed = 1000, // スクロール時間（ミリ秒）
+                buttonOffset = 200; // トップへ戻る固定ボタンを表示するスクロール量（px)
+
+        	// スムーズスクロール
+        		$('a[href^="#"]').on( 'click', function() {
+            		var href= $(this).attr( 'href' );
+            		if ( href !== '#' || href !== '' ) {
+                		var target = ( href === '#top' && !$('#top').length ) ? 'html' : href,
+                        position = $(target).offset().top;
+                		$('body, html').animate( {scrollTop:position}, scrollSpeed, 'swing' );
+                		return false;
+            	    	}
+        			});
+
+        	// トップへ戻る固定ボタンの表示・非表示
+        		if ( $('.scroll-fade').length ) {
+            		var sfBtn = $('.scroll-fade'),
+                    	sfBtnDisplay = '',
+                    	flagAnimate = false;
+            		$(sfBtn).css( 'display', 'none' );
+            		$(window).on( 'scroll', function() {
+                		sfBtnDisplay = sfBtn.css( 'display' );
+                		if ( $(this).scrollTop() > buttonOffset && sfBtnDisplay === 'none' && !flagAnimate ) {
+                    		flagAnimate = true;
+                    		sfBtn.fadeIn(function() {
+                        	flagAnimate = false;
+                    		});
+                		} else if ( $(this).scrollTop() <= buttonOffset && sfBtnDisplay !== 'none' && !flagAnimate )  {
+                    		flagAnimate = true;
+                    		sfBtn.fadeOut(function() {
+                        	flagAnimate = false;
+                    		});
+                		}
+            		});
+        		}
+    		});
+		})( jQuery );
+	</script>
+</body>
+
+
+<footer class="navbar navbar-fixed-bottom">
+   <div class="body">
+  	<div class="container">
+	  <nav>
+	    <ul class="nav navbar-nav navbar-right">
+	     <% if user_signed_in? %>
+	      <li>
+	  	  	<%= link_to timeline_posts_path do %>
+              <i class="glyphicon glyphicon-list" style="font-size: 30px; text-align: center;">
+	  	      	<div style="font-size:  12px;">タイムライン</div>
+              </i>
+            <% end %>
+          </li>
+	  	  <li>
+	  	    <%= link_to search_posts_path do %>
+	  	      <i class="glyphicon glyphicon-search" style="font-size: 30px;">
+	  	      	<div style="font-size:  12px;">投稿検索</div>
+	  	      </i>
+	  	    <% end %>
+	  	  </li>
+	  	  <li>
+	  	  	<%= link_to new_post_path do %>
+	  	      <i class="glyphicon glyphicon-edit" style="font-size: 30px; text-align: center;">
+	  	      	<div style="font-size:  12px;">新規投稿</div>
+	  	      </i>
+	  	    <% end %>
+	  	  </li>
+	     <% elsif admin_signed_in? %>
+	      <li>
+	  	    <%= link_to admins_users_path do %>
+	  	    　<i class="glyphicon glyphicon-user" style="font-size: 30px; text-align: center;">
+	  	      	<div style="font-size:  12px;">ユーザー一覧</div>
+	  	      </i>
+	  	    <% end %>
+	  	  </li>
+	  	  <li>
+	  	  	<%= link_to admins_reports_path do %>
+	  	      <i class="glyphicon glyphicon-warning-sign" style="font-size: 30px; text-align: center;">
+	  	      	<div style="font-size:  12px;">通報一覧</div>
+	  	      </i>
+	  	    <% end %>
+	  	  </li>
+          <% end %>
+	    </ul>
+	  </nav>
+	</div>
+   </div>
+
+   <div class="SmoothScroll_pageTop scroll-fade"> <a href="#smoothscroll" class="gimmickSmoothScroll"><span>ページのトップへ戻る</span></a></div>
+   <div class="col-xs-3 col-xs-offset-9">
+     <p>Copyright Side-hustle.inc</p>
+   </div>
+
+  </footer>
+</html>

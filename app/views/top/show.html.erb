@@ -1,0 +1,22 @@
+<div class="container" style="background-image: url(<%= asset_path "christopher-sardegna-156-unsplash.jpg" %>); background-size: cover">
+	<div class="row" style="padding: 100px 0 150px 0;">
+		<div class="text-center col-xs-12" style="color: white;">
+			<h1>
+				副業ポータル
+			</h1>
+		</div>
+		<div>
+			<%= image_tag("layers-512.png", :size => "100x300", class: "col-xs-8 col-xs-offset-2") %>
+		</div>
+	<div class="col-xs-6">
+		<div>
+			<%= link_to 'ログイン', new_user_session_path, class: "btn-lg btn-ghost btn-white col-xs-6 col-xs-offset-3 text-center" %>
+		</div>
+	</div>
+	<div class="col-xs-6">
+		<div>
+	 		<%= link_to '新規登録', new_user_registration_path, class: "btn-lg btn-ghost btn-white col-xs-6 col-xs-offset-3 text-center" %>
+	 	</div>
+	</div>
+	</div>
+</div>

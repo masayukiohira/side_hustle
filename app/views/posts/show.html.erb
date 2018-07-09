@@ -1,0 +1,121 @@
+<% title "投稿詳細" %>
+
+<div class="container">
+	<div class="row">
+  <% if @post.user.unsubscribe == false %>
+		<div class="col-xs-2">
+		<%= link_to user_path(@post.user.id) do %>
+			<%= attachment_image_tag @post.user, :image, format: 'jpeg', fallback:"noimage.jpeg", size: '100x100', :style => "border-radius: 50%;" %>
+		</div>
+		<div class="col-xs-10">
+			<%= @post.user.name %><br>
+		<% end %>
+     <div style="font-weight: bold;">
+       カテゴリー：<%= @post.category %><br>
+       タイトル：<%= @post.title %>
+     </div>
+		</div>
+		<div class="col-xs-10">
+      <div class="col-xs-12">
+        <% if notice %>
+          <p class="alert alert-success"><%= notice %></p>
+        <% else %>
+          <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>" >
+              <%= value %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+			<nav>
+	    		<ul class="nav navbar-nav navbar-left">
+				<% if @post.liked_by?(current_user) %>
+	  	  			<li>
+                   		<%= link_to post_likes_path(@post), method: :delete do %>
+                   			<i class="glyphicon glyphicon-heart" style="text-align: center;">
+                   				<div style="font-size:  5px;">いいね！</div>
+                   			</i>
+            			<% end %>
+            		</li>
+                <% else %>
+                    <li>
+	  	    			<%= link_to post_likes_path(@post), method: :post do %>
+	  	    				<i class="glyphicon glyphicon-heart-empty" style="text-align: center;">
+	  	    					<div style="font-size:  5px;">いいね！</div>
+	  	    				</i>
+            			<% end %>
+            		</li>
+	  	    	<% end %>
+				<% if @post.commented_by?(current_user) %>
+	  	  			<li>
+                   		<%= link_to post_comments_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+                   			<i class="glyphicon glyphicon-comment" style="text-align: center;">
+                   				<div style="font-size:  5px;">コメント</div>
+                   			</i>
+            			<% end %>
+            		</li>
+                <% else %>
+                    <li>
+	  	    			<%= link_to new_post_comments_path(@post) do %>
+	  	    				<i class="glyphicon glyphicon-comment" style="text-align: center;">
+                   				<div style="font-size:  5px;">コメント</div>
+                   			</i>
+            			<% end %>
+            		</li>
+	  	    	<% end %>
+	  	  		<% if @post.favorited_by?(current_user) %>
+	  	  			<li>
+                   		<%= link_to post_favorites_path(@post), method: :delete do %>
+                   			<i class="glyphicon glyphicon-tags" style="text-align: center;">
+                   				<div style="font-size:  5px;">お気に入り</div>
+                   			</i>
+            			<% end %>
+            		</li>
+                <% else %>
+                    <li>
+	  	    			<%= link_to post_favorites_path(@post), method: :post do %>
+	  	    				<i class="glyphicon glyphicon-tag" style="text-align: center;">
+                   				<div style="font-size:  5px;">お気に入り</div>
+                   			</i>
+            			<% end %>
+            		</li>
+	  	    	<% end %>
+	  	    	<% if @post.user_id == current_user.id %>
+	  	  			<li>
+            			<%= link_to post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" do %>
+              				<i class="glyphicon glyphicon-trash" style="text-align: center;">
+              					<div style="font-size:  5px;">削除</div>
+              				</i>
+              			<% end %>
+          			</li>
+          		<% else %>
+          			<li>
+            			<%= link_to new_post_reports_path(@post) do %>
+              				<i class="glyphicon glyphicon-warning-sign" style="text-align: center;">
+              					<div style="font-size:  5px;">通報</div>
+              				</i>
+              			<% end %>
+          			</li>
+          		<% end %>
+          		</ul>
+          	</nav>
+        </div>
+        <div class="col-xs-12">
+			<%= link_to likes_post_path do %>
+			いいね！<%= @post.likes.count %>件<br>
+			<% end %>
+			<%= attachment_image_tag @post, :image, format: 'jpeg', fallback:"noimage2.jpeg", size: '200x375', class: "col-xs-12" %><br>
+			<%= @post.body %><br>
+			<%= link_to comments_post_path do %>
+			コメント<%= @post.comments.count%>件全て表示する
+			<% end %>
+		</div>
+  <% end %>
+	</div>
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

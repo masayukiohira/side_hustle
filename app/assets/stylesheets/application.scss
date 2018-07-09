@@ -1,0 +1,126 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+ 
+/* bootstrapのpaddingをなくす */
+.p-0 {
+  padding: 0 0 0 0;
+}
+
+/* ゴーストボタン */
+.btn-ghost {
+	background: transparent;
+}
+
+.btn-ghost.btn-default {
+  color: #777;
+}
+
+.btn-ghost.btn-primary {
+  color: #337ab7;
+}
+
+.btn-ghost.btn-success {
+  color: #5cb85c;
+}
+
+.btn-ghost.btn-info {
+  color: #5bc0de;
+}
+
+.btn-ghost.btn-warning {
+  color: #f0ad4e;
+}
+
+.btn-ghost.btn-danger {
+  color: #d9534f;
+}
+
+.btn-ghost.btn-primary:hover,
+.btn-ghost.btn-success:hover,
+.btn-ghost.btn-info:hover,
+.btn-ghost.btn-warning:hover,
+.btn-ghost.btn-danger:hover {
+  color: #fff;
+}
+
+.btn-ghost.btn-white {
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.btn-ghost.btn-white:hover {
+  color: #333;
+  background: #fff;
+}
+ 
+/* スムーズスクロール */
+.SmoothScroll_pageTop{
+    text-align:right;
+    position: fixed;
+    bottom: 3%;
+    right: 5%;
+    display: none;
+}
+.SmoothScroll_pageTop a{
+    display:inline-block;
+    background-color:rgba(54, 54, 54, 0.4);
+    padding:10px 20px;
+    margin:10px 0;
+    color:#FFF;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+.SmoothScroll_pageTop a::before{
+    font-family:FontAwesome;
+  content: "\f062";
+    margin-right:5px;
+}
+.SmoothScroll_pageTop a:hover{
+    background-color:rgba(54, 54, 54, 0.6);
+}
+
+@media only screen and (max-width: 768px) {
+    .SmoothScroll_pageTop a{
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        border-radius: 100%;
+        width:50px;
+        height:50px;
+        padding:0;
+        text-align:center;
+        line-height:50px;
+    }
+    .SmoothScroll_pageTop a::before{
+        margin-right:0;
+    }
+    .SmoothScroll_pageTop a span{
+        display:none;
+    }
+}
+ 
+/* object-fit-image */
+.ofi {
+object-fit: cover;
+object-position: 50% 50%;
+}
+ 
+/* mainタグ　IE対応　*/
+main {
+  display: block;
+}
