@@ -8,7 +8,7 @@
 				<% post = Post.find(favorite.post_id) %>
 				<% if post.user.unsubscribe == false %>
 					<%= link_to post_path(post.id) do %>
-						<%= attachment_image_tag post, :image, size: "200x200", format: "jpeg", fallback: "noimage2.jpeg", class: "col-xs-12"%>
+						<%= attachment_image_tag post, :image, size: "200x200", format: "jpg", fallback: "noimage2.jpg", class: "col-xs-12"%>
 					<% end %>
 				<% end %>
 			</div>

@@ -13,7 +13,7 @@
 			<% end %>
 		  <% end %>
 		  <%= link_to post_path(@post.id) do %>
-			<%= attachment_image_tag @post, :image, format: 'jpeg', fallback:"noimage2.jpeg", size: '150x250', class: "col-xs-12" %><br>
+			<%= attachment_image_tag @post, :image, format: 'jpg', fallback:"noimage2.jpg", size: '150x250', class: "col-xs-12" %><br>
 		  <% end %>
 		   	タイトル：<%= @post.title %>
 		</div>

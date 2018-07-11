@@ -83,7 +83,7 @@
 						<%= link_to user_path(current_user) do%>
 	    				<div style="font-size: 20px; padding-top: 7px;">
 	    					<i style="color: black;">
-	    						<%= attachment_image_tag current_user, :image, format: 'jpeg', fallback:"noimage.jpeg", :style => "border-radius: 50%;", :size => '30x30'%>
+	    						<%= attachment_image_tag current_user, :image, format: 'jpg', fallback:"noimage.jpg", :style => "border-radius: 50%;", :size => '30x30'%>
 	    					<%= current_user.name %>
 	    					</i>
 	        			</div>
@@ -93,7 +93,7 @@
 		 			<li>
 	    				<div style=" font-size: 20px; padding-top: 20px;">
 	    					<i style="color: black;">
-	    						<%= image_tag("管理者.jpeg", :size => "30x30", :style => "border-radius: 50%;") %>
+	    						<%= image_tag("管理者.jpg", :size => "30x30", :style => "border-radius: 50%;") %>
 	    						管理者
 	    					</i>
 	        			</div>
@@ -102,7 +102,7 @@
 		 			<li>
 	    				<div style="font-size: 20px; padding-top: 20px;">
 	    					<i style="color: black;">
-	    						<%= image_tag("noimage.jpeg", :size => "30x30", :style => "border-radius: 50%;") %>
+	    						<%= image_tag("noimage.jpg", :size => "30x30", :style => "border-radius: 50%;") %>
 	    						ようこそ ゲスト 様
 	    					</i>
 	        			</div>
@@ -123,7 +123,7 @@
 						<%= link_to user_path(current_user) do%>
 	    				<div style="padding-top: 20px; font-size: 20px;">
 	    					<i style="color: black;">
-	    						<%= attachment_image_tag current_user, :image, format: 'jpeg', fallback:"noimage.jpeg", :style => "border-radius: 50%;", :size => "30x30" %>
+	    						<%= attachment_image_tag current_user, :image, format: 'jpg', fallback:"noimage.jpg", :style => "border-radius: 50%;", :size => "30x30" %>
 	    					<%= current_user.name %>
 	    					</i>
 	        			</div>
@@ -189,7 +189,7 @@
           		<% elsif admin_signed_in? %>
 	  	    		<li>
 	    				<div style="padding-top: 20px; font-size: 15px;">
-	    					<%= image_tag("管理者.jpeg", :size => "30x30", :style => "border-radius: 50%;") %>
+	    					<%= image_tag("管理者.jpg", :size => "30x30", :style => "border-radius: 50%;") %>
 	    					管理者
 	        			</div>
 	        		</li>
@@ -226,7 +226,7 @@
         		<% else %>
         　			<li>
         				<div style="padding-top: 20px; font-size: 15px;">
-	    					<%= image_tag("noimage.jpeg", :size => "30x30", :style => "border-radius: 50%;") %>
+	    					<%= image_tag("noimage.jpg", :size => "30x30", :style => "border-radius: 50%;") %>
 	    					ゲスト　様
 	        			</div>
 	     			</li>

@@ -2,7 +2,7 @@
 	<% user = User.find_by(id: message.from_id) %>
 	<% if user.unsubscribe == false %>
 	<p class="<%= message.id %>" id="message_content">
-    <%= attachment_image_tag user, :image, format: 'jpeg', fallback:"noimage.jpeg", :style => "border-radius: 50%;", :size => "15x15" %>
+    <%= attachment_image_tag user, :image, format: 'jpg', fallback:"noimage.jpg", :style => "border-radius: 50%;", :size => "15x15" %>
 		<%= user.name %><br>
 		<%= message.content %><br>
 		<%= message.created_at.strftime('%Y年%m月%d日 %H時%M分') %>

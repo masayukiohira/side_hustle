@@ -18,7 +18,7 @@
 			<% if post.user.unsubscribe == false %>
 				<div class="col-xs-4 p-0">
 					<%= link_to post_path(post.id) do %>
-						<%= attachment_image_tag post, :image, format: 'jpeg',fallback:"noimage2.jpeg", size: "250x250" %>
+						<%= attachment_image_tag post, :image, format: 'jpg',fallback:"noimage2.jpg", size: "250x250" %>
 					<% end %>
 				</div>
 			<% end %>

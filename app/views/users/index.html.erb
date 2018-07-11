@@ -18,7 +18,7 @@
 	<div class="row">
 	  <%= link_to user_path(user.id) do %>
 		<div class="col-xs-3">
-			<%= attachment_image_tag user, :image, format: 'jpeg', fallback:"noimage.jpeg", :style => "border-radius: 50%;", size: "200x200" %><br>
+			<%= attachment_image_tag user, :image, format: 'jpg', fallback:"noimage.jpg", :style => "border-radius: 50%;", size: "200x200" %><br>
 		</div>
 	  <% end %>
 		<div class="col-xs-9">
